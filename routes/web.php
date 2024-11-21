@@ -12,8 +12,8 @@ use App\Http\Controllers\signupController;
 Route::get('/landingpage', [landingPageController::class, 'index'])->name('landingpage');
 Route::post('/landingpage', [landingPageController::class, 'store'])->name('store');
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('showLoginForm');
-Route::post('/login', [LoginController::class, 'processLogin'])->name('login.process');
+Route::get('/login', [loginController::class, 'showLoginForm'])->name('showLoginForm');
+Route::post('/loginuser', [loginController::class, 'processLogin'])->name('login.process');
 
 Route::get('/signup', [signupController::class, 'showSignUpForm'])->name('showSignUpForm');
 Route::post('/signup', [signupController::class, 'store'])->name('signup.store');

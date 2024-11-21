@@ -1,0 +1,367 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+.navbar {
+    background-color: #0a1f44;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+.navbar img {
+    height: 15%;
+    width: 15%;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+.navbar ul li {
+    margin: 0 15px;
+    display: inline-block;
+}
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+    border-radius: 40px;
+}
+.navbar ul li a:hover {
+    background-color: #ffffff;
+    color: #0a1f44;
+    /* border: 2px solid #0a1f44; */
+    outline:  2px solid #0a1f44;
+}
+.navbar .search-login {
+    display: flex;
+    align-items: center;
+}
+.navbar .search-login input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+.navbar .search-login button {
+    background-color: #0a1f44;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    /* border-radius: 5px; */
+    cursor: pointer;
+}
+.search-login button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    background-color: #0a1f44;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.search-login button:hover {
+    background-color: white;
+    color: #0a1f44;
+    /* border: 2px solid #0a1f44; */
+    outline:  2px solid #0a1f44;
+    border-radius: 40px;
+}
+.container-1 {
+    display: flex;
+    justify-content: space-between; /* Memberikan jarak di antara elemen */
+    align-items: flex-start; /* Mengatur elemen agar sejajar di bagian atas */
+    gap: 20px; /* Memberikan jarak antara hero dan trending-recipes */
+    padding: 20px;
+}
+.trending-recipes {
+    padding: 40px;
+}
+.trending-recipes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.trending-recipes h1 {
+    font-size: 36px;
+    font-weight: 900px;
+    color: #0a1f44;
+    margin: 0;
+}
+.trending-recipes .cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+.trending-recipes .card {
+    position: relative;
+    width: 150px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.trending-recipes .card.large {
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+}
+.trending-recipes .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.trending-recipes .card .text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+}
+.hero-section .text {
+    max-width: 100%;
+    margin-top: 10%;
+}
+.hero-section .text h1 {
+    font-size: 70px;
+    margin: 0;
+}
+.hero-section .text p {
+    font-size: 30px;
+    color: #666;
+}
+/* 
+.hero-section .cards {
+    display: flex;
+    gap: 20px;
+}
+.hero-section .cards .card {
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+.hero-section .cards .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-section .cards .card .overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+} */
+.features-wrapper {
+    display: flex;
+    justify-content: center; /* Pusatkan horizontal */
+    align-items: center; /* Pusatkan vertikal */
+    min-height: auto;
+    padding: 20px 0;
+}
+.features {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    background-color: #fff;
+    padding: 20px 50px;
+    margin: 20px 90px;
+    border-radius: 15px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 20px;
+    width: 60%;
+    flex-grow: 1;
+    /* max-width: 600px; Batas maksimum lebar */
+    
+}
+.features .feature {
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+}
+.features .feature i {
+    font-size: 30px;
+    color: #0d2538;
+}
+.features .feature p {
+    margin: 10px 0 0;
+    font-size: 18px;
+}
+.features .feature:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.chef-choices {
+    padding: 50px;
+    background-color: white;
+}
+.chef-choices h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.cards {
+    display: flex;
+    gap: 20px; /* Sesuaikan jarak antar elemen */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: none; /* Hindari background default */
+}
+.chef-choices .cards {
+    display: flex;
+    gap: 35px;
+    /* overflow-x: auto; */
+    margin-top: 5%;
+    background: transparent; /* Pastikan background transparan */
+}
+.chef-choices .card {
+    width: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.chef-choices .cards .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.chef-choices .cards .card .content {
+    padding: 10px;
+    text-align: center;
+}
+.chef-choices .cards .card .content h3 {
+    font-size: 16px;
+    margin: 0;
+}
+.chef-choices .cards .card .content p {
+    font-size: 14px;
+    color: #666;
+}
+.chef-choices .cards .card .content .rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.chef-choices .cards .card .content .rating i {
+    color: #f39c12;
+}
+
+.why-choose {
+    padding: 50px;
+    background-color: #fff;
+    
+}
+.why-choose h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.why-features {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    margin: 20px;
+    padding: 30px;
+
+    height: auto;
+    background-color: #fff;
+    /* padding: 20px 50px;
+    margin: 20px 90px; */
+    border-radius: 15px;
+    font-size: 20px;
+    /* width: 100%;
+    max-width: 1000px; */
+    
+}
+.why-choose .why-features {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    /* margin: 20px; */
+    padding: 30px;
+    /* padding: 40px; */
+    background-color: #fff;
+    margin: 20px 50px;
+    border-radius: 15px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    font-size: 20px;
+}
+.why-choose .why-features .feature-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    max-width: 300px;
+    height: 200px;
+    flex: 1;
+}
+.why-choose .why-features .feature-card i {
+    font-size: 48px;
+    color: #0d2538;
+}
+.why-choose .why-features .feature-card h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+.why-choose .why-features .feature-card p {
+    font-size: 16px;
+    color: #666;
+}
+@media (max-width: 768px) {
+    .container-1 {
+        flex-direction: column; /* Tumpuk elemen secara vertikal */
+    }
+
+    .hero-section, 
+    .trending-recipes {
+        max-width: 100%;
+        flex: unset;
+        padding: 10px;
+       }
+}
