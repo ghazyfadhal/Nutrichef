@@ -83,7 +83,7 @@
                Ingredients
               </h3>
               <div class="filter-item">
-               Vegetable
+               Vegan
               </div>
               <div class="filter-item">
                Meat
