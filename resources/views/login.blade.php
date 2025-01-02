@@ -6,7 +6,7 @@
     <title>Nutrichef - Login Page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style-login.css">
+    <link rel="stylesheet" href="{{ asset('css/style-login.css') }}">
 </head>
 <body>
     <div class="container">
@@ -51,7 +51,11 @@
                         <!-- Login Button -->
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
-        
+                    <div class="form-group">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Ingat Saya</label>
+                    </div>
+
                     <div class="divider">
                         Or
                     </div>
@@ -66,7 +70,7 @@
                 </div>
         </div>
         </div>
-        <div class="right">
+        <div class="right" >
         </div>
     </div>
 </body>

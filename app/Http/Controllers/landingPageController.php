@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\LandingPage;
+use App\Models\Resep;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class landingPageController extends Controller
@@ -12,16 +15,11 @@ class landingPageController extends Controller
      */
     public function index()
     {
-        //
-        return view('landingpage');
-    }
+        // Mengambil semua data resep dan data user yang sedang login
+        $items = resep::all();
+        $user = Auth::user();  // Ambil user yang sedang login
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('landingpage', compact('items', 'user'));
     }
 
     /**
@@ -29,44 +27,15 @@ class landingPageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input
         $request->validate([
-            'username'=>'required|max:100',
-            'password'=>'required|max:100'
+            'username' => 'required|max:100',
+            'password' => 'required|max:100'
         ]);
-        user::create($request->all());
-        return redirect()->route('user.store')->with('Success', 'berhasil');
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(LandingPage $landingPage)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(LandingPage $landingPage)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, LandingPage $landingPage)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(LandingPage $landingPage)
-    {
-        //
+        // Simpan data user baru
+        User::create($request->all());
+        
+        return redirect()->route('user.store')->with('success', 'User berhasil ditambahkan.');
     }
 }

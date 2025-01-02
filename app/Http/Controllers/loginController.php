@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;  // Pastikan Model User ada
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -13,7 +14,7 @@ class LoginController extends Controller
         return view('login');
     }
 
-    // Proses login
+    // Proses login tanpa menggunakan Auth
     public function processLogin(Request $request)
     {
         // Validasi input
@@ -22,20 +23,68 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        // Proses autentikasi
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Jika login berhasil
-            return redirect()->route('home')->with('success', 'Login berhasil!');
-        }
+        // Cari user berdasarkan email
+        $user = User::where('email', $request->email)->first();
 
-        // Jika login gagal
-        return back()->with('error', 'Email atau password salah!');
+        // Cek apakah user ditemukan dan password cocok
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Simpan informasi user di session
+            session(['user' => $user]);
+
+            // Redirect ke home atau landingpage
+            return redirect()->route('landingpage')->with('success', 'Login berhasil!');
+        } else {
+            // Jika gagal, kembali ke halaman login
+            return redirect()->route('login')->withErrors([
+                'error' => 'Email atau password salah.'
+            ]);
+        }
     }
 
-    // Logout
+    // Logout manual
     public function logout()
     {
-        Auth::logout();
+        // Hapus session
+        session()->forget('user');
         return redirect()->route('login')->with('success', 'Logout berhasil!');
+    }
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        $remember = $request->has('remember');
+
+        if (Auth::attempt($credentials, $remember)) {
+            return redirect()->intended('/');
+        }
+
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ]);
+    }
+    protected function authenticated(Request $request, $user)
+    {
+        // Ambil data bookmark dari session
+        $favoritSession = session()->get('favorit', []);
+
+        foreach ($favoritSession as $resepId) {
+            // Cek apakah sudah ada di database
+            $favoritExist = Favorit::where('user_id', $user->id)
+                                   ->where('resep_id', $resepId)
+                                   ->exists();
+
+            if (!$favoritExist) {
+                // Simpan ke database jika belum ada
+                Favorit::create([
+                    'user_id' => $user->id,
+                    'resep_id' => $resepId,
+                ]);
+            }
+        }
+
+        // Hapus session setelah migrasi
+        session()->forget('favorit');
+
+        // Redirect ke halaman sebelumnya
+        return redirect()->intended('/');
     }
 }

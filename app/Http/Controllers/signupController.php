@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User; // Pastikan model User digunakan
 use Illuminate\Support\Facades\Hash;
 
-class signupController extends Controller
+class SignupController extends Controller
 {
     // Menampilkan formulir signup
     public function showSignUpForm()
@@ -17,18 +17,21 @@ class signupController extends Controller
     // Menyimpan data pengguna
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-        ]);
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:user,email', // Pastikan field `email` sesuai di DB
+            // 'password' => 'required|string|min:8|confirmed', // Tambahkan konfirmasi password
+        ]);      
 
+        // Simpan data pengguna ke database
         User::create([
-            'name' => $request->name,
+            'username' => $request->username,  // Gunakan huruf kecil
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);
+        ]);        
 
+        // Redirect ke halaman login dengan pesan sukses
         return redirect()->route('login')->with('success', 'Sign up berhasil! Silakan login.');
     }
 }

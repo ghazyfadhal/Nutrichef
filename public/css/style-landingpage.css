@@ -1,5 +1,5 @@
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -42,7 +42,7 @@ body {
     background-color: #ffffff;
     color: #0a1f44;
     /* border: 2px solid #0a1f44; */
-    outline:  2px solid #0a1f44;
+    outline: 2px solid #0a1f44;
 }
 .navbar .search-login {
     display: flex;
@@ -63,7 +63,7 @@ body {
     cursor: pointer;
 }
 .search-login button {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-weight: bold;
     background-color: #0a1f44;
     color: white;
@@ -77,8 +77,19 @@ body {
     background-color: white;
     color: #0a1f44;
     /* border: 2px solid #0a1f44; */
-    outline:  2px solid #0a1f44;
+    outline: 2px solid #0a1f44;
     border-radius: 40px;
+}
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
 }
 .container-1 {
     display: flex;
@@ -205,7 +216,6 @@ body {
     width: 60%;
     flex-grow: 1;
     /* max-width: 600px; Batas maksimum lebar */
-    
 }
 .features .feature {
     text-align: center;
@@ -293,7 +303,6 @@ body {
 .why-choose {
     padding: 50px;
     background-color: #fff;
-    
 }
 .why-choose h2 {
     text-align: center;
@@ -316,7 +325,6 @@ body {
     font-size: 20px;
     /* width: 100%;
     max-width: 1000px; */
-    
 }
 .why-choose .why-features {
     display: flex;
@@ -358,10 +366,10 @@ body {
         flex-direction: column; /* Tumpuk elemen secara vertikal */
     }
 
-    .hero-section, 
+    .hero-section,
     .trending-recipes {
         max-width: 100%;
         flex: unset;
-        padding: 10px;
-       }
+        padding: 10px;
+    }
 }

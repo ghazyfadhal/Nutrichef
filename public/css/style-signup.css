@@ -1,4 +1,3 @@
-/* SIGNUP PAGE */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -61,28 +60,65 @@ h2 {
     font-weight: 700;
     margin-bottom: 20px;
 }
+button {
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+.btn, .submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 40px; /* Membuat sudut melengkung */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animasi hover */
+}
+
 .google-btn {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 40px;
+    color: #000;
     cursor: pointer;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* margin-bottom: 20px; */
+    /* border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;*/
+}
+.google-btn button {
+    width: 100%;
+    border: none; /* Menghapus border */
+    background-color: transparent; /* Tetap putih */
+    box-shadow: none; /* Hilangkan bayangan */
+    padding: 10px 15px; /* Tambahkan padding untuk proporsi */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px; /* Opsional: sudut melengkung */
+    transition: none !important; /* Menghapus semua transisi */
+    color: inherit;
 }
 .google-btn img {
     width: 20px;
     height: 20px;
-    margin-left: 10px;
-    
+    /* margin-left: 10px; */
+    margin-right: 8px;
+}
+.google-btn:hover img {
+    filter: brightness(0) invert(1); /* Mengubah ikon menjadi putih */
 }
 .google-btn:hover{
     background-color: #0d1b2a;
     color: white;
-
+}
+.google-btn:hover button {
+    color: inherit;
 }
 .divider {
     display: flex;
@@ -137,12 +173,14 @@ h2 {
     cursor: pointer;
     font-weight: 500;
     transition:  background-color 0.3s ease, color 0.3s ease; /* Menambahkan transisi untuk background-color dan color */
-    ;
+    
 }
 .submit-btn:hover{
     background-color: white;
     color: black;
+    border: 1px solid #ccc;
 }
+
 .login-link {
     text-align: center;
     margin-top: 20px;

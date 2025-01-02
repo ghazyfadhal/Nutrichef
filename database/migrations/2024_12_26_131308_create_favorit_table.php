@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('user', function (Blueprint $table){
+        Schema::create('favorit', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('password');
+            $table->foreignId('userID')->constrained('users')->onDelete('cascade');
+            $table->foreignId('resepID')->constrained('resep')->onDelete('cascade');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -25,7 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::drop('user');
+        Schema::dropIfExists('favorit');
     }
 };

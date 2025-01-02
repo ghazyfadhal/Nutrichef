@@ -2,12 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
 }
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     display: flex;
     height: 100%;
     width: 100%;
@@ -22,7 +21,7 @@ body {
     margin-top: 0;
     width: 50vw;
     height: 100vh;
-    margin: 10px 100px 0px 100px; 
+    margin: 10px 100px 0px 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,8 +48,13 @@ form {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background: url('images/login.png') no-repeat center center;
-
+    background: url("/images/login.png") no-repeat center center;
+}
+.image-section img {
+    width: 110%;
+    height: 100vh;
+    display: flex;
+    object-fit: cover;
 }
 
 .logo {
@@ -82,9 +86,10 @@ label {
     margin-bottom: 5px;
     display: block;
 }
-input[type="email"], input[type="password"] {
+input[type="email"],
+input[type="password"] {
     font-family: "Quicksand", serif;
-    width: 100%;  /* Membuat lebar input 50% dari form */
+    width: 100%; /* Membuat lebar input 50% dari form */
     padding: 12px;
     margin-right: 20px; /* Menambahkan ruang antar input */
     border: 1px solid #e0e0e0;
@@ -92,14 +97,13 @@ input[type="email"], input[type="password"] {
     font-size: 16px;
     display: flex;
     flex-direction: column;
-
 }
 .form-group {
     width: 100%;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    justify-content: space-between;  /* Menyusun input dan tombol dalam satu baris */
+    justify-content: space-between; /* Menyusun input dan tombol dalam satu baris */
     margin-bottom: 10px;
 }
 .password-group {
@@ -140,7 +144,7 @@ input[type="email"], input[type="password"] {
     color: black;
 }
 .btn-primary {
-    background-color: #70B9BE;
+    background-color: #70b9be;
     color: white;
     /* margin-bottom: 20px; */
 }
@@ -158,23 +162,24 @@ input[type="email"], input[type="password"] {
     display: flex;
     align-items: center;
     justify-content: center; /* Pastikan garis berada di tengah */
-    width: 100%;  /* Pastikan lebar elemen cukup untuk menampilkan garis */
+    width: 100%; /* Pastikan lebar elemen cukup untuk menampilkan garis */
     text-align: center;
     margin: 20px 0;
 }
 
-.divider::before, .divider::after {
-    content: '';
+.divider::before,
+.divider::after {
+    content: "";
     flex: 1;
     border-bottom: 3px solid #ccc;
 }
 
 .divider::before {
-    margin-right: .25em;  /* Pastikan jarak antara garis dan teks simetris */
+    margin-right: 0.25em; /* Pastikan jarak antara garis dan teks simetris */
 }
 
 .divider::after {
-    margin-left: .25em;  /* Pastikan jarak antara garis dan teks simetris */
+    margin-left: 0.25em; /* Pastikan jarak antara garis dan teks simetris */
 }
 .register {
     margin-top: 10px;
@@ -183,5 +188,5 @@ input[type="email"], input[type="password"] {
 }
 .register a {
     color: #00bfa6;
-    text-decoration: none;
+    text-decoration: none;
 }

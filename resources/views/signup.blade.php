@@ -70,14 +70,14 @@
                             required>
                     </div>
                     <div class="form-group">
-                        <label for="name">Full Name</label>
+                        <label for="username">Username</label>
                         <input 
                             type="text" 
-                            name="name" 
-                            id="name" 
+                            name="username" 
+                            id="username" 
                             class="form-control" 
-                            placeholder="Enter your full name" 
-                            value="{{ old('name') }}" 
+                            placeholder="Enter your  username" 
+                            value="{{ old('username') }}" 
                             required>
                     </div>
                     <div class="form-group">
@@ -90,12 +90,12 @@
                             placeholder="Create your password" 
                             required>
                     </div>
-                    <a href="{{ route('showLoginForm') }}" type="submit" class="btn submit-btn btn-primary w-100">Create an Account</a>
+                    <button type="submit" class="btn submit-btn btn-primary w-100">Create an Account</button>
                 </form>
 
                 <!-- Login Link -->
                 <div class="login-link text-center mt-3">
-                    <span>Already have an account? <a href="{{ route('showLoginForm') }}">Login</a></span>
+                    <span>Already have an account? <a href="{{ route('login') }}">Login</a></span>
                 </div>
 
                 <!-- Social Icons -->
