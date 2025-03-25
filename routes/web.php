@@ -50,7 +50,7 @@ Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 
 // Proses pencarian
 Route::match(['GET', 'POST'], '/search', [SearchController::class, 'search'])->name('search');
-Route::post('/bookmark', [BookmarkController::class, 'store'])->middleware('auth')->name('bookmark.store');
+Route::post('/bookmark', [BookmarkController::class, 'store'])->middleware('web')->name('bookmark.store');
 Route::get('/cek-auth', function () {
     return response()->json([
         'is_logged_in' => Auth::check(),

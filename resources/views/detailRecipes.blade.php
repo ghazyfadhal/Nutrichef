@@ -130,9 +130,13 @@
                             <span><a href="#klik-review"><button>See Review</button></a></span>
                         </div>
                     </div>
-                    
-                    <img src="/images/bookmark_add.png" alt="Bookmark" class="bookmark-icon" id="bookmarkButton"
+                    <form method="POST" action="{{ route('bookmark.store') }}">
+                        @csrf
+                        <img src="/images/bookmark_add.png" alt="Bookmark" class="bookmark-icon" id="bookmarkButton"
                         data-resep="{{ $resep->resepID }}" style="width: 30px; height: 30px;">
+                        <input type="hidden" name="resepID" value="{{ $resep->id }}">
+                        <button type="submit">Bookmark</button>
+                    </form>
                 </div>
             </div>
             <!--2-->
@@ -321,38 +325,27 @@
         const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const bookmarkButton = document.getElementById('bookmarkButton');
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-            bookmarkButton.addEventListener('click', function() {
-                const resepID = this.dataset.resep;  // Ambil ID resep dari atribut data-resep
+            let form = e.target;
+            let formData = new FormData(form);
 
-                if (document.querySelector('meta[name="user-logged-in"]').content === 'false') {
-                    alert('Anda harus login terlebih dahulu.');
-                    return;
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content')
                 }
-
-                fetch("{{ route('bookmark.store') }}", {
-                    method: 'POST',
-                    credentials: 'same-origin',  // Penting agar cookie sesi terkirim
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        resepID: resepID
-                    })
-                }).then(response => {
-                    if (!response.ok) {
-                        throw new Error('Gagal menambahkan bookmark');
-                    }
-                    return response.json();
-                }).then(data => {
-                    alert(data.message || "Resep berhasil ditambahkan ke bookmark!");
-                    bookmarkButton.src = "/images/bookmark_added.png";  // Ganti ikon bookmark jika berhasil
-                }).catch(error => {
-                    alert(error.message || "Terjadi kesalahan.");
-                });
+            }).then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => Promise.reject(err));
+                }
+                return response.json();
+            }).then(data => {
+                alert(data.message);
+            }).catch(err => {
+                alert(err.error || 'Terjadi kesalahan');
             });
         });
     </script>
